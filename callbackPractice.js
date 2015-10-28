@@ -138,6 +138,11 @@ uniq(names, function(uniqArr){
 
 
     //Code Here for each
+var each = function(arr1, cb) {
+    for (var i=0; i < arr1.length; i++) {
+        cb(arr1[i], i);
+    }
+};
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function(item, indice){
@@ -155,6 +160,14 @@ each(names, function(item, indice){
 
 
  //code here for getUserById
+var getUserById = function(arr1, id, cb) {
+  for (var i=0; i < arr1.length; i++) {
+    if (arr1[i].id === id) {
+      return cb(arr1[i]);
+    }
+  }
+}
+
 
 var users = [
   {

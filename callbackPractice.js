@@ -25,7 +25,9 @@ and what you should write is the sayHi function that makes the code above work,
 
 
   //Code Here for first
-  
+var first = function(firstName, cb) {
+  cb(firstName[0]);
+};
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 first(names, function(firstName){

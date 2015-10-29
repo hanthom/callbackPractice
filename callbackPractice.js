@@ -100,6 +100,10 @@ contains(names, 'Colt', function(result){
   }
 });
 
+/*could have used indexOf instead of for loop above
+function contains(arr, name, cb) {
+	cb(arr.indeOf(name) !== -1)
+}*/
 
 
 
@@ -111,12 +115,11 @@ contains(names, 'Colt', function(result){
 
     //Code Here for uniq
 var uniq = function(arr1, cb) {
-  var x = 0;
-  for (var i=0; i < arr1.length; i++) {
-    x++;
-    for (var j=x; j < arr1.length; j++) {
+  var len = arr.length;
+  for (var i=0; i < len; i++) {
+    for (var j= i + 1; j < len; j++) {
       if (arr1[i] === arr1[j]) {
-         arr1.splice(j, 1);
+         arr1.splice(j, 1); //delete leaves an empty index in array, thus use splice usually.
       }       
     }
   }
@@ -143,6 +146,13 @@ var each = function(arr1, cb) {
         cb(arr1[i], i);
     }
 };
+
+/* The above way gives us more functionality overall, but this way with the for..in loop would work as well.
+function each(arr, cb) {
+	for (var i in arr) {
+		cb(arr[i], i)
+	}
+}*/
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function(item, indice){
